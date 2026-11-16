@@ -1,0 +1,31 @@
+"""
+URL configuration for libraryproject project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/6.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from libraryapp import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    
+    path('create/list_book',views.CreateListBookView.as_view(),name="create_list_book"),
+    path('update/delete/<int:pk>',views.RetrieveUpdateDeleteBookView.as_view(),name="update_delete_book"),
+    
+    path('create/list_borrow',views.CreateListBorrow.as_view(),name="create_list_borrow"),
+    path('update/delete_borrow/<int:pk>',views.RetrieveUpdateDestroyBorrow.as_view(),name="update_delete_borrow"),
+    
+    path('borrowed',views.BorrowedBooksView.as_view(),name="borrowed_books")
+]

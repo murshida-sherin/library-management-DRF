@@ -1,0 +1,143 @@
+#----CREATE BOOKS----
+
+###
+POST http://127.0.0.1:8000/create/list_book
+Content-Type: application/json
+
+{
+    "title":"Veenapoov",
+    "author":"kamalasurayya",
+    "category":"poetry",
+    "isbn":"dfgv345678",
+    "available_copies":10
+}
+
+
+###
+POST http://127.0.0.1:8000/create/list_book
+Content-Type: application/json
+
+{
+    "title":"Naalu Kett",
+    "author":"MT Vasudevan Nair",
+    "category":"Novel",
+    "isbn":"dfgv3453445",
+    "available_copies":15
+}
+
+
+###
+POST http://127.0.0.1:8000/create/list_book
+Content-Type: application/json
+
+{
+    "title":"The Wings of Fire",
+    "author":"APJ Abdul Kalam",
+    "category":"Biography",
+    "isbn":"dfgv3450945",
+    "available_copies":8
+}
+
+
+#---LIST BOOK ---
+
+###
+GET http://127.0.0.1:8000/create/list_book
+
+
+
+#-----RETRIEVE BOOK-----
+###
+GET http://127.0.0.1:8000/update/delete/2
+
+###
+GET http://127.0.0.1:8000/update/delete/3
+
+
+#-----UPDATE BOOK -----
+
+###
+PUT http://127.0.0.1:8000/update/delete/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "The Wings of Fire",
+  "author": "APJ Abdul Kalam",
+  "category": "Biography",
+  "isbn": "abcv3450945",
+  "available_copies": 8
+}
+
+#---DELETE BOOK ----
+
+###
+DELETE http://127.0.0.1:8000/update/delete/2
+
+
+
+#------CREATE BORROW RECORD-----
+
+###
+POST http://127.0.0.1:8000/create/list_borrow
+Content-Type: application/json
+
+{
+    "book":1,
+    "borrower_name":"Anu",
+    "borrower_email":"anu@gmail.com",
+    "borrow_date":"2026-11-10",
+    "is_returned":"True"
+}
+
+
+###
+POST http://127.0.0.1:8000/create/list_borrow
+Content-Type: application/json
+
+{
+    "book":3,
+    "borrower_name":"Manu",
+    "borrower_email":"manu@gmail.com",
+    "borrow_date":"2026-11-14",
+    "is_returned":"False"
+}
+
+
+#----LIST BORROW RECORD---
+
+###
+GET http://127.0.0.1:8000/create/list_borrow
+
+
+#-----RETRIEVE BORROW RECORD----
+
+###
+GET http://127.0.0.1:8000/update/delete_borrow/1
+
+
+#-----UPDATE BORROW RECORD----
+
+###
+PUT http://127.0.0.1:8000/update/delete_borrow/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "borrower_name": "Anu",
+  "borrower_email": "anu@gmail.com",
+  "borrow_date": "2026-11-10",
+  "is_returned": "False",
+  "book": 1
+}
+
+
+#----DELETE BORROW RECORD---
+
+###
+DELETE http://127.0.0.1:8000/update/delete_borrow/2
+
+
+#---BORROWED BOOKS----
+###
+GET http://127.0.0.1:8000/borrowed
