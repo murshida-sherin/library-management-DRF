@@ -26,8 +26,9 @@ class RetrieveUpdateDestroyBorrow(RetrieveAPIView,UpdateAPIView,DestroyAPIView):
     queryset=BorrowRecord.objects.all() 
     
     
-class BorrowedBooksView(APIView):
+class BorrowedBooks(APIView):
     def get(self,request,*args,**kwargs):
-        borrowed=BorrowRecord.objects.filter(is_returned="False")
+        Borrowed=BorrowRecord.objects.filter(is_returned="False")
         
-        return Response({'borrowed books':borrowed})      
+        serializer=BorrowSerializer(Borrowed,many=True)
+        return Response({'borrowed_books':serializer.data})      

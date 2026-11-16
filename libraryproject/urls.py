@@ -27,5 +27,5 @@ urlpatterns = [
     path('create/list_borrow',views.CreateListBorrow.as_view(),name="create_list_borrow"),
     path('update/delete_borrow/<int:pk>',views.RetrieveUpdateDestroyBorrow.as_view(),name="update_delete_borrow"),
     
-    path('borrowed',views.BorrowedBooksView.as_view(),name="borrowed_books")
+    path('borrowed',views.BorrowedBooks.as_view(),name="borrowed_books")
 ]
